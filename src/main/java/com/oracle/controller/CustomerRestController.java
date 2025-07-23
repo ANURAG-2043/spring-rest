@@ -48,4 +48,10 @@ public class CustomerRestController {
 		ResponseEntity<String> response = new ResponseEntity<String>(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
 		return response;
 	}
+	
+	@ExceptionHandler(com.oracle.exceptions.DataIntegrityViolationException.class)
+	public ResponseEntity<String> DataIntegrityViolationException(com.oracle.exceptions.DataIntegrityViolationException ex) {
+		ResponseEntity<String> response = new ResponseEntity<String>(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+		return response;
+	}
 }
